@@ -1,0 +1,30 @@
+{
+  "name": "uncursed.io",
+  "private": true,
+  "devDependencies": {
+    "bootstrap": "5.1.3",
+    "purgecss": "4.0.3",
+    "terser": "5.9.0",
+    "typescript": "4.4.4",
+    "imagemin-cli": "7.0.0",
+    "imagemin-webp": "6.0.0",
+    "pug": "3.0.2",
+    "pug-cli": "1.0.0-alpha6",
+    "sass": "1.43.4",
+    "http-server": "14.0.0",
+    "clean-css-cli": "5.5.0"
+  },
+  "scripts": {
+    "watch": "start \"\" /b yarn build-cp & start \"\" & start \"\" /b yarn pug --out ./docs ./src/index.pug --watch & start \"\" /b yarn tsc --watch --outFile ./docs/site.min.js & start \"\" /b yarn sass ./src/bundle.scss ./docs/bundle.min.css --no-error-css --source-map --watch",
+    "deploy": "yarn build && git add . && git commit --amend -m \"Deploy 🚀\" && git push --force github uncursed.io",
+    "build": "yarn build-cp && yarn build-html && yarn build-js && yarn build-css && yarn build-img",
+    "build-cp": "xcopy /e /y .\\font .\\docs\\font\\ && xcopy /e /y .\\webm .\\docs\\webm\\ && xcopy /e /y .\\img\\min\\*.png .\\docs\\img\\ && xcopy /y .\\*.ico .\\docs && xcopy /y .\\*.png .\\docs\\",
+    "build-html": "yarn pug --out ./docs src/index.pug",
+    "build-js": "yarn tsc && terser --config-file terserconfig.json --output docs/site.min.js -- docs/site.js",
+    "build-css": "yarn sass src/bundle.scss docs/bundle.css --no-error-css --source-map && purgecss --safelist active --font-face --css docs/bundle.css --content docs/index.html --output docs/bundle.min.css && yarn cleancss -o ./docs/bundle.min.css ./docs/bundle.min.css",
+    "build-img": "yarn build-img-4k && yarn build-img-2k && yarn build-img-1k",
+    "build-img-4k": "yarn imagemin img/raw --out-dir=docs/img/4k --plugin.webp.method=6 --plugin.webp.quality=95 --plugin.webp.autofilter=true --plugin.webp.resize.width=3840 --plugin.webp.resize.height=0",
+    "build-img-2k": "yarn imagemin img/raw --out-dir=docs/img/2k --plugin.webp.method=6 --plugin.webp.quality=95 --plugin.webp.autofilter=true --plugin.webp.resize.width=1920 --plugin.webp.resize.height=0",
+    "build-img-1k": "yarn imagemin img/raw --out-dir=docs/img/1k --plugin.webp.method=6 --plugin.webp.quality=95 --plugin.webp.autofilter=true --plugin.webp.resize.width=1024 --plugin.webp.resize.height=0"
+  }
+}

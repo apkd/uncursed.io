@@ -1,0 +1,12 @@
+﻿@charset "UTF-8";
+@import "./style/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./style/global";
+@import "./style/components/navbar";
+@import "./style/components/buttons";
+@import "./style/sections/masthead";
+@import "./style/sections/about";
+@import "./style/sections/projects";
+@import "./style/sections/signup";
+@import "./style/sections/contact";
+@import "./style/sections/footer";

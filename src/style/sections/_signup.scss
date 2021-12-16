@@ -1,0 +1,74 @@
+.signup-section {
+  padding: 10rem 0;
+
+  background: linear-gradient(to bottom, #{fade-out($dark, 0.5)} 0%, #{fade-out($dark, 0.5)} 75%, $dark 100%), url("/img/2k/signup.webp") no-repeat scroll center / cover;
+
+  @media(max-width: 320px) {
+    background: linear-gradient(to bottom, #{fade-out($dark, 0.5)} 0%, #{fade-out($dark, 0.5)} 75%, $dark 100%), url("/img/1k/signup.webp") no-repeat scroll center / cover;
+  }
+  @media(min-width: 2100px) {
+    background: linear-gradient(to bottom, #{fade-out($dark, 0.5)} 0%, #{fade-out($dark, 0.5)} 75%, $dark 100%), url("/img/4k/signup.webp") no-repeat scroll center / cover;
+  }
+
+  .form-signup {
+    input {
+      box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+      padding: 1.25rem 2rem;
+      height: auto;
+      font-family: $font-family-special;
+      font-size: 80%;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      border: 0;
+    }
+  }
+
+  .form-control {
+    background-color: #090909;
+    color: white;
+  }
+
+  .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.discord {
+  zoom: 0.8;
+  -moz-transform: scale(0.8);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.8);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.8);
+  -webkit-transform-origin: 0 0;
+  overflow: hidden;
+  width: 125%;
+  height: calc(125% + 64px);
+  border-radius: 5px;
+}
+
+.discord-wrapper {
+  position: relative;
+  height: min(50vh, 512px);
+  overflow: hidden;
+  //filter: sepia(5%) drop-shadow(0 0 6px #0003);
+  border-radius: 5px;
+}
+
+.discord-btn {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 32px;
+  width: 60px;
+  height: 28px;
+  line-height: 27px;
+  z-index: 5;
+  font-size: 11px;
+  padding: 1px 0 0 0;
+  filter: drop-shadow(0 0 6px #0003);
+}
+
+.discord-btn.small  svg {
+  height: 16px;
+}

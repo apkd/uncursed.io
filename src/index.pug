@@ -1,0 +1,221 @@
+doctype html
+html(lang="en")
+
+    head
+
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="description", content="")
+        meta(name="author", content="Nocebo Games")
+
+        title Uncursed
+
+        meta(property="og:url" content="https://uncursed.io/")
+        meta(property="og:image" content="https://uncursed.io/share.png")
+        meta(property="og:title" content="Uncursed")
+        meta(property="og:description" content="Uncursed is coming.")
+        meta(property="og:image:type" content="image/png")
+        meta(property="og:image:width" content="1200")
+        meta(property="og:image:height" content="630")
+
+        meta(name='msapplication-TileColor' content='#000000')
+        meta(name='theme-color' content='#000000')
+        link(rel='apple-touch-icon' sizes='120x120' href='/apple-touch-icon.png')
+        link(rel="icon", type="image/x-icon", href="assets/favicon.ico")
+        link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
+        link(rel='manifest' href='/site.webmanifest')
+        link(rel='mask-icon' href='/safari-pinned-tab.svg' color='#000000')
+
+        link(href="bundle.min.css", rel="stylesheet")
+        script(src="site.min.js" defer)
+        noscript
+            style
+                //- play animation immediately if javascript is not supported
+                | .animate-logo { animation-play-state: running }
+                //- hide discord applet when javascript is not supported
+                | .discord-wrapper { display: none }
+
+    body(style="background-color:#111")
+
+        .navbar-shrink.d-none //- make class visible to purgecss
+
+        // -----------------------------------------
+        nav#mainNav.navbar.navbar-expand.navbar-black.fixed-top.d-print-none
+            .container.px-4.px-lg-5
+                a.navbar-brand(href="#") 
+                    include svg/logo-navbar.pug
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto
+                        li.nav-item.d-none.d-lg-block
+                            a.nav-link(href="#") Hello there
+                        li.nav-item.d-none.d-md-block
+                            a.nav-link(href="#projects") Sweet gifs
+                        li.nav-item
+                            a.nav-link(href="#newsletter") Get updates
+                        li.nav-item.d-none.d-md-block
+                            a.nav-link(href="#dungeon") Discord
+
+        // -----------------------------------------
+        header.masthead
+            .container.px-4.px-lg-5.d-flex.h-100.align-items-center.justify-content-center
+                .d-flex.justify-content-center
+                    .text-center
+                        include svg/logo.pug
+
+        // -----------------------------------------
+        section#about.about-section.text-center.pt-0
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-lg-8
+                        h1.h2.text-white.mb-5 Uncursed is in development
+                        p.text-white.text-opacity-75
+                            | Coming in <a href="#newsletter">2024</a> to your favorite platforms.
+                        p.text-white.text-opacity-75
+                            include svg/icon-steam.pug
+                            include svg/icon-gog.pug
+                            include svg/icon-apple.pug
+                            include svg/icon-google-play.pug
+
+        // -----------------------------------------
+        section#projects.projects-section.bg-dark
+            .container.px-4.px-lg-5
+            
+                noscript
+                    style
+                        | video.lazy { display:none }
+
+                mixin video(url)
+                    video.video-responsive.lazy.bg-dark.mb-3.mb-lg-0(autoplay playsinline muted loop onclick="this.paused ? this.play() : this.pause();")
+                        source(data-src=url type="video/webm")
+                        |  Sorry, the video didn't work in your browser. No problem - <a href="https://discord.gg/YWdcvQwNur">join us on Discord</a> to see all kinds of sneak peaks!
+                    noscript
+                        video.video-responsive.bg-dark.mb-3.mb-lg-0(autoplay playsinline muted loop onclick="this.paused ? this.play() : this.pause();")
+                            source(src=url type="video/webm")
+                            |  Sorry, the video didn't work in your browser. No problem - <a href="https://discord.gg/YWdcvQwNur">join us on Discord</a> to see all kinds of sneak peaks!
+
+                .row.gx-0.mb-4.mb-lg-10.align-items-center
+                    .col-xl-8.col-lg-7
+                        +video("/webm/1.webm")
+                    .col-xl-4.col-lg-5
+                        .featured-text.text-center.text-lg-left
+                            h1.h4.text-white.mb-3
+                                |  Be water, my friend.
+                            p.text-white
+                                strong Uncursed is an action-packed roguelite dungeon crawler.
+                            p.text-white.text-opacity-75
+                                |  Swiftly move between your enemies while you launch attacks.
+                            p.text-white.text-opacity-75
+                                |  In combat, your ability to predict and dodge attacks is life or death.
+                            p.text-white.text-opacity-75
+                                |  Learn to use momentum to your advantage, and you will become unstoppable.
+
+                .row.gx-0.mb-5.mb-lg-0.justify-content-center
+                    .col-lg-6(style="height:300px")
+                        +video("/webm/3.webm")
+                    .col-lg-6
+                        .bg-black.text-center.h-100.project
+                            .d-flex.h-100
+                                .project-text.w-100.my-auto.text-center.text-lg-left
+                                    h1.h4.text-white
+                                        |  Hunt for loot
+                                    p.mb-0.text-white
+                                        strong  Find, craft or buy the tools you'll need to make progress.<br class="d-none d-lg-block">
+                                        .text-white.text-opacity-75 Adapt to challenges by crafting and customizing equipment.
+
+                .row.gx-0.justify-content-center
+                    .col-lg-6(style="height:300px")
+                        +video("/webm/5.webm")
+                    .col-lg-6.order-lg-first
+                        .bg-black.text-center.h-100.project
+                            .d-flex.h-100
+                                .project-text.w-100.my-auto.text-center.text-lg-right
+                                    h1.h4.text-white
+                                        |  Find your path
+                                    p.mb-0.text-white
+                                        strong  Unlock new abilities and prepare for challenges that lie ahead.<br class="d-none d-lg-block">
+                                        .text-white.text-opacity-75  Find allies who will help you throughout your journey.
+
+                .row.gx-0.mb-5.mb-lg-0.justify-content-center
+                    .col-lg-6(style="height:300px")
+                        +video("/webm/world.webm")
+                    .col-lg-6
+                        .bg-black.text-center.h-100.project
+                            .d-flex.h-100
+                                .project-text.w-100.my-auto.text-center.text-lg-left
+                                    h1.h4.text-white
+                                        strong  Explore
+                                    p.mb-0.text-white
+                                        strong
+                                            | Travel the world and explore countless locations filled with obstacles and challenges, but also untold rewards.
+
+        //-
+            // -----------------------------------------
+            section.text-center.bg-dark
+                .container.px-4.px-lg-5(style="padding-bottom:150px")
+                    .row.gx-4.gx-lg-5.justify-content-center
+                        .col-lg-8
+                            h1.h2.text-white.mb-4 Lorem ipsum
+                            p.text-white.text-opacity-75
+                                |  Lorem ipsum<br>
+                                |  Lorem ipsum
+                            p.text-white.text-opacity-75
+                                |  Lorem ipsum<br>
+                                |  Lorem ipsum
+
+        // -----------------------------------------
+        section#newsletter.signup-section
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5
+                    .col-md-10.col-lg-8.mx-auto.text-center
+                        h2.bg-highlight.text-white.mb-3.py-2
+                            |  Join the mailing list
+                            include svg/icon-plane.pug
+                        .bg-highlight.text-white.pt-2
+                            strong We'll send you milestone updates.
+                        .bg-highlight.text-white.text-opacity-75.pb-2
+                            | No spam, ever. You can always easily unsubscribe.
+
+                        form.form-signup.mt-5.needs-validation(method="post" action="https://newsletter.nocebo.games/subscription/form")
+                            .row
+                                .col
+                                    input.form-control(type="email", name="email", placeholder="Enter email address...", aria-label="Enter email address...")
+                                .col-auto
+                                    button.btn.btn-primary(type="submit" formtarget="_blank") Notify Me!
+
+                            input(type="hidden" name="name" value="anon (nocebo.games)")
+                            input(type="hidden" name="l" value="dcba7d9b-e219-4a2f-a2e3-5bc65f019f00")
+
+        // -----------------------------------------
+        section#dungeon.contact-section.bg-dark
+            .container.px-4.px-lg-5.pb-5
+
+                .row.gx-4.gx-lg-5
+                    .col-md-10.col-lg-8.mx-auto.text-center
+                        h2.text-white.mb-3
+                            |  Join our discord
+                            include svg/icon-discord.pug
+                        .text-white
+                            strong Join us at our community server.
+                        .text-white.text-opacity-75.mb-5
+                            | Coming soon: discord-based RPG games, community events, giveaways and more.
+
+                .row.gx-4.gx-lg-5.d-print-none#discord-parent
+                    .col-md-2.col-sm-1.mb-5.d-none.d-sm-block
+                    .col-md-8.col-sm-10.mb-5.discord-wrapper
+                        .discord-wrapper
+                            iframe.discord#discord(src="" loading="lazy" referrerpolicy="no-referrer")
+
+                .row.gx-4.gx-lg-5.d-print-none
+                    .text-center
+                        a.btn.btn-primary(href="https://discord.gg/YWdcvQwNur")
+                            include svg/icon-discord.pug
+                            |  Open in Discord
+
+        footer.footer.bg-dark.small.text-center.text-white.text-opacity-75
+            .container.px-4.px-lg-5
+                | No personally identifiable data collected or shared. 
+
+        script(data-goatcounter="https://uncursed.goatcounter.nocebo.games/count" defer src="https://uncursed.goatcounter.nocebo.games/count.js")
+        noscript
+            img(src="https://uncursed.goatcounter.nocebo.games/count?p=/&t=Uncursed" width=1 height=1)
