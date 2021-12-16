@@ -1,0 +1,128 @@
+#mainNav {
+  min-height: 3.5rem;
+  background-color: $black;
+  
+  svg {
+    height: 24px;
+    width: auto;
+    margin-top: -4px;
+    fill: darken($white, 20%);
+  }
+
+  .navbar-toggler {
+    font-size: 80%;
+    padding: 0.75rem;
+    color: $white;
+    border: $border-width solid $white;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .navbar-brand {
+    color: $white;
+    font-weight: 700;
+    padding: 0.9rem 0;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      &:hover {
+        color: fade($black, 80%);
+        outline: none;
+        background-color: transparent;
+      }
+
+      &:active,
+      &:focus {
+        outline: none;
+        background-color: transparent;
+      }
+    }
+  }
+  
+  .nav-link {
+    border-bottom: 0.25rem solid transparent;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    .nav-link {
+      color: $white;
+
+      &:hover {
+        color: darken($white, 30%);
+      }
+
+      &:active {
+        color: lighten($white, 15%);
+      }
+
+      &.active {
+        color: darken($primary, 30%);
+      }
+    }
+  }
+
+  &.navbar-shrink {
+    background-color: $black;
+
+    svg {
+      fill: $white;
+    }
+
+    .navbar-brand {
+      color: $white;
+    }
+
+    .nav-link {
+      color: $white;
+      border-bottom: 0.25rem solid transparent;
+
+      @include media-breakpoint-up(lg) {
+        padding: 1.25rem 1.5rem 1rem;
+      }
+
+      &:hover {
+        color: darken($primary, 20%);
+      }
+
+      &:active {
+        color: darken($primary, 30%);
+      }
+
+      &.active {
+        color: darken($primary, 20%);
+        outline: none;
+        border-bottom: 0.25rem solid $primary;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+    
+    .navbar-brand {
+      padding: 0.5rem 0;
+      color: fade-out($black, 0.5);
+    }
+
+    .nav-link {
+      transition: padding 0.5s;
+      padding: 2rem 1.5rem;
+      color: darken($white, 20%);
+
+      &:hover {
+        color: darken($white, 40%);
+      }
+
+      &:active {
+        color: darken($white, 20%);
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+/.idea
+/_site
+/_drafts
+/node_modules
+.jekyll-metadata
+Gemfile.lock
+yarn-error.log

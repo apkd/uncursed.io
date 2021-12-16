@@ -1,0 +1,51 @@
+@include media-breakpoint-down(sm) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
+html {
+  // Scroll padding for all scroll targets on page used with
+  // native CSS smooth scrolling
+  // https://caniuse.com/?search=scroll-padding
+  scroll-padding-top: calc(4rem - 1px);
+  overflow-x: hidden;
+}
+
+body {
+  letter-spacing: $base-letter-spacing;
+}
+
+.bg-highlight {
+  background-color: rgba($dark, 0.7);
+}
+
+a {
+  text-decoration: underline dotted;
+}
+
+@include media-breakpoint-up(lg) {
+  .mb-lg-10 {
+    margin-bottom: 6rem !important;
+  }
+}
+
+.mb-10 {
+  margin-bottom: 6rem !important;
+}
+
+.icon {
+  height: 32px;
+  width: auto;
+  margin: 0 8px;
+  margin-top: -0.2rem;
+  display: inline;
+  line-height: 32px;
+}
+
+.text-white .icon {
+  fill: white;
+}
+.text-opacity-75 .icon {
+  fill-opacity: 0.75;
+}
